@@ -1,5 +1,5 @@
 # techscanfrontend
-Preview:[]()
+Preview: http://techscan.programminggeek.in
 
 ## Prerequisite
 - NodeJS

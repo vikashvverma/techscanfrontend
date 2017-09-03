@@ -59,7 +59,7 @@
     <md-card flex>
       <h2>Languages</h2>
       <md-card-content>
-        <md-list-item ng-repeat="repo in repos" ng-if="repo.language.length>0" ng-click="go(repo.language)">
+        <md-list-item ng-repeat="repo in repos track by $index" ng-if="repo.language.length>0" ng-click="go(repo.language)">
           <p> {{ repo.language }} </p>
           <md-chips>
             <md-chip class="md-secondary">{{repo.repoCount}}</md-chip>

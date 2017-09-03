@@ -19,7 +19,7 @@ const app = angular
     'ngSanitize',
     'ngMaterial'
   ])
-  .config(function ($mdIconProvider, $locationProvider, $routeProvider) {
+  .config(function ($mdIconProvider, $locationProvider, $routeProvider, $httpProvider) {
     $mdIconProvider.fontSet('fa', 'fontawesome');
     // $locationProvider.html5Mode(true).hashPrefix('!');;
     $routeProvider
@@ -35,10 +35,25 @@ const app = angular
       .otherwise({
         redirectTo: '/techscan/technologies'
       });
-  }).run(function ($rootScope, $location) {
+
+    $httpProvider.interceptors.push(function ($rootScope) {
+      return {
+        'request': function (config) {
+          config.url = config.url.match(/api/g) ? ($rootScope.apiPath || "http://localhost:3333") + config.url : config.url;
+          return config;
+        }
+
+      }
+    });
+
+  }).run(function ($rootScope, $location, $http) {
     $rootScope.home=function () {
       $location.path('/');
     };
+    $http.get("config.json").then(function (response) {
+      console.log(response);
+      $rootScope.apiPath=response.data.apiPath;
+    })
   });
 
 app.config(function ($mdThemingProvider) {
