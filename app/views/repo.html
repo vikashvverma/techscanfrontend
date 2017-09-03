@@ -1,8 +1,13 @@
 <md-content class="md-padding">
   <div layout="column" layout-gt-xs="row">
     <md-card flex flex-gt-xs="60">
-      <!--<h2>Languages</h2>-->
       <md-card-content>
+        <md-content layout-gt-sm="column" layout-padding>
+          <md-input-container class="md-block">
+            <label>Search</label>
+            <input ng-model="searchTerm" ng-change="next(0, searchTerm)">
+          </md-input-container>
+        </md-content>
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch
                  ng-repeat="repo in langRepos track by $index">
           <md-card-title>

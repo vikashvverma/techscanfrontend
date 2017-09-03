@@ -35,6 +35,10 @@ const app = angular
       .otherwise({
         redirectTo: '/techscan/technologies'
       });
+  }).run(function ($rootScope, $location) {
+    $rootScope.home=function () {
+      $location.path('/');
+    };
   });
 
 app.config(function ($mdThemingProvider) {

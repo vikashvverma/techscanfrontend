@@ -54,16 +54,13 @@
                 <path d="M2 13.5h14v-1.5h-14v1.5zm0-4h14v-1.5h-14v1.5zm0-5.5v1.5h14v-1.5h-14z"></path>
               </svg>
             </md-button>
-            <!--<img src="images/cast.png" class="md-avatar" style="margin-right:0;cursor: pointer;" />-->
 
-            <h2 flex md-truncate>Tech Scan</h2>
+            <h2 flex md-truncate ng-click="home()" style="cursor: pointer;">Tech Scan</h2>
 
 
             <md-list>
               <md-list-item aria-label="Open phone interactions menu" class="md-icon-button">
-                <user-avatar ng-if="vm.isLoggedIn()" ng-click="vm.toggleSidenav('right')"
-                             style="cursor: pointer;"></user-avatar>
-                <img ng-if="!vm.isLoggedIn()" src="images/avatar_2x.png" class="md-avatar"
+                <img src="images/avatar_2x.png" class="md-avatar"
                      style="margin-right:0;cursor: pointer;"
                      ui-sref="main.login"/>
               </md-list-item>

@@ -6,7 +6,7 @@
           <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="repo in repos"
                    ng-if="repo.language.length>0">
             <md-card-content>
-              <h2 class="center-name" ng-click="go(repo.language)">{{repo.language}}</h2>
+              <h2 class="center-name" ng-click="go(repo.language)" style="cursor: pointer;">{{repo.language}}</h2>
             </md-card-content>
           </md-card>
         </md-card-content>
