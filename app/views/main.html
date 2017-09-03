@@ -1,0 +1,26 @@
+  <md-content class="md-padding">
+    <div layout="column" layout-gt-xs="row">
+      <md-card flex flex-gt-xs="60">
+        <!--<h2>Languages</h2>-->
+        <md-card-content>
+          <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch ng-repeat="repo in repos"
+                   ng-if="repo.language.length>0">
+            <md-card-content>
+              <h2 class="center-name" ng-click="go(repo.language)">{{repo.language}}</h2>
+            </md-card-content>
+          </md-card>
+        </md-card-content>
+      </md-card>
+      <md-card flex>
+        <h2>Languages</h2>
+        <md-card-content>
+          <md-list-item ng-repeat="repo in repos" ng-if="repo.language.length>0" ng-click="go(repo.language)">
+            <p> {{ repo.language }} </p>
+            <md-chips>
+              <md-chip class="md-secondary">{{repo.repoCount}}</md-chip>
+            </md-chips>
+          </md-list-item>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-content>

@@ -1,0 +1,66 @@
+<md-content class="md-padding">
+  <div layout="column" layout-gt-xs="row">
+    <md-card flex flex-gt-xs="60">
+      <!--<h2>Languages</h2>-->
+      <md-card-content>
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch
+                 ng-repeat="repo in langRepos track by $index">
+          <md-card-title>
+            <md-card-title-text>
+              <md-list-item class="md-2-line">
+                <div class="md-list-item-text" layout="column">
+                  <h2 class="repo-name">{{ repo.repoUrl.split("https://github.com/")[1].toLocaleLowerCase() }}</h2>
+                  <p>{{ repo.description }}</p>
+                </div>
+                <md-chips>
+                  <md-chip class="md-secondary">
+                    <md-icon md-font-icon="fa fa-language"></md-icon>
+                    {{repo.language}}
+                  </md-chip>
+                  <md-chip class="md-secondary" style="padding-left: 100px;">
+                    <md-icon md-font-icon="fa fa-star"></md-icon>
+                    {{repo.starCount}}
+                  </md-chip>
+                </md-chips>
+              </md-list-item>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
+        <md-divider></md-divider>
+        <div layout="row" layout-xs="column" layout-align="space-between center" style="font-size:22px;padding:10px;">
+          <div>
+            <md-button class="success" ng-if="page" ng-click="next(page-1);"
+                       style="cursor:pointer;">
+              <md-icon md-font-icon="fa fa-hand-o-left md-primary"></md-icon>
+              Previous
+            </md-button>
+          </div>
+          <div>
+            <label class="md-warn success">
+              Showing Page <span class="text-primary" style="font-size:22px;"><strong>
+          {{page}} </strong></span>
+            </label>
+          </div>
+          <div>
+            <md-button class="md-accent" ng-click="next(page+1);"
+                       style="cursor:pointer;" ng-if="!last">
+              Next <md-icon md-font-icon="fa fa-hand-o-right"></md-icon>
+            </md-button>
+          </div>
+        </div>
+
+      </md-card-content>
+    </md-card>
+    <md-card flex>
+      <h2>Languages</h2>
+      <md-card-content>
+        <md-list-item ng-repeat="repo in repos" ng-if="repo.language.length>0" ng-click="go(repo.language)">
+          <p> {{ repo.language }} </p>
+          <md-chips>
+            <md-chip class="md-secondary">{{repo.repoCount}}</md-chip>
+          </md-chips>
+        </md-list-item>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>
