@@ -10,5 +10,6 @@ Preview: http://techscan.programminggeek.in
 - Run `npm install` or `yarn install`
 - Run `bower install`
 
-Run `grunt build` for building and `grunt serve` for preview.
+Run `grunt serve` for preview.
 
+P.S. If you change the `port` for  [https://github.com/vikashvverma/techscanservice](https://github.com/vikashvverma/techscanservice) then make sure you update the port  in `techscanfrontend/config.json` 
